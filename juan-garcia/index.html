@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades para Juan García — Summum Ibiza</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5f8a 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .header .agency { font-size: 0.85rem; letter-spacing: 0.15em; opacity: 0.8; text-transform: uppercase; }
+    .header h1 { font-size: 1.8rem; font-weight: 700; margin: 0.5rem 0; }
+    .header .subtitle { opacity: 0.9; font-size: 1rem; }
+    .search-summary {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .summary-tag {
+      background: #f1f5f9;
+      border-radius: 9999px;
+      padding: 0.3rem 0.9rem;
+      font-weight: 500;
+    }
+    .results-count {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+    .section { padding: 0 1.5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+    .top-match-card { border: 2px solid #f59e0b; }
+    .card-image-wrap { height: 200px; overflow: hidden; background: #e2e8f0; }
+    .card-img { width: 100%; height: 100%; object-fit: cover; }
+    .card-img-placeholder {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+    .card-body { padding: 1.1rem; }
+    .card-header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; }
+    .card-badges { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+    }
+    .badge.top-match { background: #fef3c7; color: #92400e; }
+    .badge.incomplete { background: #fff1f2; color: #be123c; cursor: help; }
+    .score-badge {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .score-badge small { font-size: 0.65rem; font-weight: 400; opacity: 0.9; }
+    .card-price { font-size: 1.35rem; font-weight: 700; color: #1e3a5f; margin-bottom: 0.3rem; }
+    .card-location { font-size: 0.85rem; color: #64748b; margin-bottom: 0.5rem; }
+    .card-details { font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem; }
+    .highlights { list-style: none; margin-bottom: 0.9rem; }
+    .highlights li {
+      font-size: 0.8rem;
+      color: #166534;
+      background: #f0fdf4;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.25rem;
+    }
+    .highlights li::before { content: "✓  "; font-weight: 700; }
+    .cta-btn {
+      display: block;
+      text-align: center;
+      background: #1e3a5f;
+      color: white;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .cta-btn:hover { background: #2d5f8a; }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2rem;
+    }
+    @media (max-width: 500px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .header h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="agency">Summum Ibiza Real Estate</div>
+  <h1>Selección de propiedades para Juan García</h1>
+  <div class="subtitle">Alquiler · Piso · Santa Eulalia, Es Canar, Jesús</div>
+</header>
+
+<div class="search-summary">
+  <span class="summary-tag">🏠 Alquiler</span>
+  <span class="summary-tag">📍 Santa Eulalia, Es Canar, Jesús</span>
+  <span class="summary-tag">💰 Presupuesto: 2.000 €</span>
+  <span class="summary-tag">📅 Búsqueda: 13/04/2026</span>
+</div>
+
+<p class="results-count">
+  Hemos encontrado <strong>5 propiedades</strong> que se ajustan a tu búsqueda,
+  de las cuales <strong>5 son TOP MATCH</strong> (puntuación ≥ 75/100).
+</p>
+
+
+        <section class="section">
+          <h2 class="section-title">⭐ Top Matches — Las mejores opciones para ti</h2>
+          <div class="cards-grid">
+    <div class="card top-match-card" id="listing-0">
+      <div class="card-image-wrap"><img src="https://img3.fotocasa.es/blur/WEB_LISTING/0/id.pro.es.image.master/mock-002.jpg" alt="Foto del inmueble" class="card-img" onerror="this.style.display='none'"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <div class="card-badges"><span class="badge top-match">⭐ TOP MATCH</span></div>
+          <div class="score-badge" style="background:#22c55e">100<small>/100</small></div>
+        </div>
+        <div class="card-price">1.600 €/mes</div>
+        <div class="card-location">📍 Es Canar, Santa Eulalia del Río</div>
+        <div class="card-details">🛏 2 hab.  ·  🚿 1 baños  ·  📐 75 m²</div>
+        <ul class="highlights"><li>Precio dentro del presupuesto</li><li>Zona exacta solicitada</li><li>Cumple todos los requisitos imprescindibles</li><li>Extras deseables presentes</li></ul>
+        <a href="https://www.fotocasa.es/es/alquiler/vivienda/mock-002/" target="_blank" rel="noopener" class="cta-btn">Ver en Fotocasa →</a>
+      </div>
+    </div>
+    <div class="card top-match-card" id="listing-1">
+      <div class="card-image-wrap"><img src="https://img.habitaclia.com/blur/WEB_LISTING/0/id.pro.es.image.master/mock-005.jpg" alt="Foto del inmueble" class="card-img" onerror="this.style.display='none'"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <div class="card-badges"><span class="badge top-match">⭐ TOP MATCH</span></div>
+          <div class="score-badge" style="background:#22c55e">97<small>/100</small></div>
+        </div>
+        <div class="card-price">1.950 €/mes</div>
+        <div class="card-location">📍 Es Canar, Santa Eulalia del Río</div>
+        <div class="card-details">🛏 3 hab.  ·  🚿 2 baños  ·  📐 88 m²</div>
+        <ul class="highlights"><li>Precio dentro del presupuesto</li><li>Zona exacta solicitada</li><li>Cumple todos los requisitos imprescindibles</li><li>Extras deseables presentes</li></ul>
+        <a href="https://www.habitaclia.com/alquiler-piso-es_canar/mock-005.htm" target="_blank" rel="noopener" class="cta-btn">Ver en Habitaclia →</a>
+      </div>
+    </div>
+    <div class="card top-match-card" id="listing-2">
+      <div class="card-image-wrap"><img src="https://img4.idealista.com/blur/WEB_LISTING/0/id.pro.es.image.master/59/ab/c1/1234567890.jpg" alt="Foto del inmueble" class="card-img" onerror="this.style.display='none'"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <div class="card-badges"><span class="badge top-match">⭐ TOP MATCH</span></div>
+          <div class="score-badge" style="background:#22c55e">93<small>/100</small></div>
+        </div>
+        <div class="card-price">1.850 €/mes</div>
+        <div class="card-location">📍 Santa Eulalia, Santa Eulalia del Río</div>
+        <div class="card-details">🛏 3 hab.  ·  🚿 2 baños  ·  📐 95 m²</div>
+        <ul class="highlights"><li>Precio dentro del presupuesto</li><li>Zona exacta solicitada</li><li>Cumple todos los requisitos imprescindibles</li></ul>
+        <a href="https://www.idealista.com/inmueble/mock-001/" target="_blank" rel="noopener" class="cta-btn">Ver en Idealista →</a>
+      </div>
+    </div>
+    <div class="card top-match-card" id="listing-3">
+      <div class="card-image-wrap"><img src="https://img4.idealista.com/blur/WEB_LISTING/0/id.pro.es.image.master/mock-003.jpg" alt="Foto del inmueble" class="card-img" onerror="this.style.display='none'"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <div class="card-badges"><span class="badge top-match">⭐ TOP MATCH</span></div>
+          <div class="score-badge" style="background:#22c55e">85<small>/100</small></div>
+        </div>
+        <div class="card-price">2.200 €/mes</div>
+        <div class="card-location">📍 Jesús, Ibiza</div>
+        <div class="card-details">🛏 3 hab.  ·  🚿 2 baños  ·  📐 110 m²</div>
+        <ul class="highlights"><li>Zona exacta solicitada</li><li>Cumple todos los requisitos imprescindibles</li><li>Extras deseables presentes</li></ul>
+        <a href="https://www.idealista.com/inmueble/mock-003/" target="_blank" rel="noopener" class="cta-btn">Ver en Idealista →</a>
+      </div>
+    </div>
+    <div class="card top-match-card" id="listing-4">
+      <div class="card-image-wrap"><div class="card-img-placeholder">Sin fotos</div></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <div class="card-badges"><span class="badge top-match">⭐ TOP MATCH</span><span class="badge incomplete" title="sin fotos">⚠ Datos incompletos</span></div>
+          <div class="score-badge" style="background:#22c55e">83<small>/100</small></div>
+        </div>
+        <div class="card-price">1.400 €/mes</div>
+        <div class="card-location">📍 Santa Eulalia, Santa Eulalia del Río</div>
+        <div class="card-details">🛏 2 hab.  ·  🚿 1 baños  ·  📐 65 m²</div>
+        <ul class="highlights"><li>Precio dentro del presupuesto</li><li>Zona exacta solicitada</li></ul>
+        <a href="https://www.pisos.com/alquiler/piso-santa_eulalia_del_rio/mock-004/" target="_blank" rel="noopener" class="cta-btn">Ver en Pisos.com →</a>
+      </div>
+    </div></div>
+        </section>
+
+
+<footer class="footer">
+  Informe generado el 13/04/2026 · Summum Ibiza Real Estate<br>
+  Los precios y disponibilidad pueden variar. Consulta siempre el anuncio original.
+</footer>
+
+</body>
+</html>
